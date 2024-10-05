@@ -1,98 +1,133 @@
-"use client";
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation'; // Import useRouter
-import styles from './Home.module.css';
-import Papa from 'papaparse';
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif; /* Modern font */
+  background-color: #f0f4f8; /* Soft light blue background */
+  position: relative;
+}
 
-export default function Home() {
-  const [emissionsData, setEmissionsData] = useState<{ country: string }[]>([]);
-  const router = useRouter(); // Initialize useRouter
+/* Team Name in Left-Top Corner */
+.teamName {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 1.5rem;
+  color: #ffffff;
+  background-color: #00796b; /* Dark teal background */
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+}
 
-  useEffect(() => {
-    fetch('/emissions_data.csv')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.text();
-      })
-      .then(csv => {
-        // Parse CSV data and set emissionsData
-        Papa.parse<{ country: string }>(csv, {
-          header: true,
-          complete: (results) => {
-            setEmissionsData(results.data);
-          },
-          error: (error: unknown) => {
-            console.error('Error parsing CSV:', error);
-          },
-        });
-      })
-      .catch(error => {
-        console.error('Error fetching CSV:', error);
-      });
-  }, []);
+/* Navigation Buttons in Top-Right Corner */
+.navButtons {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+}
 
-  const handleCountryRedirect = () => {
-    router.push('/country'); // Redirect to the Country page
-  };
+.navButton {
+  background-color: #00695c; /* Darker teal */
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-  const handleFireDetectionRedirect = () => {
-    router.push('/fire-detection'); // Redirect to the Fire Detection page
-  };
+.navButton:hover {
+  background-color: #004d40; /* Darker teal on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
 
-  const handleHomeRedirect = () => {
-    router.push('/'); // Redirect to Home page
-  };
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 20px; /* Margin for separation from the next section */
+  position: relative;
+  overflow: hidden; /* Prevents overflow */
+}
 
-  return (
-    <div className={styles.container}>
-      {/* Team Name on Left Top */}
-      <div className={styles.teamName}>White Aura</div>
-      
-      {/* Navigation Buttons on Top Right */}
-      <div className={styles.navButtons}>
-        <button onClick={handleHomeRedirect} className={styles.navButton}>
-          Home
-        </button>
-        <button onClick={handleFireDetectionRedirect} className={styles.navButton}>
-          Fire Detection
-        </button>
-        <button onClick={handleCountryRedirect} className={styles.navButton}>
-          View Countries
-        </button>
-      </div>
+/* Header Background Image */
+.headerBackground {
+  background-image: url('/NASA FIRMS website v2.png.png');
+  background-size: cover;
+  background-position: center;
+  height: 400px; /* Set a specific height for the header */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Title and subtitle color */
+  padding: 20px;
+  margin-top: 60px; /* Add top margin to create space for buttons */
+}
 
-      {/* Header Section with Background Image */}
-      <header className={styles.header}>
-        <div className={styles.headerBackground}>
-          <h1 className={styles.title}>Uncover the Role of Greenhouse Gases in Your Neighborhood</h1>
-          <p className={styles.subtitle}>
-            Explore how greenhouse gases affect your local environment and learn how you can make a difference.
-          </p>
-        </div>
-      </header>
+/* Title Styles */
+.title {
+  font-size: 2.5rem;
+  color: #ffffff; /* White title color */
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
+}
 
-      {/* Additional Description Below Title */}
-      <section className={styles.descriptionSection}>
-        <p className={styles.description}>
-          This tool allows you to investigate the impact of greenhouse gases in your neighborhood, 
-          providing insights into their sources and effects. 
-          Join us in taking action towards a more sustainable future!
-        </p>
-      </section>
+/* Subtitle Styles */
+.subtitle {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
+}
 
-      {/* Image Section */}
-      <section className={styles.imageSection}>
-        <img src="/images.jpg" alt="Greenhouse Gases Impact" className={styles.image} />
-        <p className={styles.imageDescription}>
-          This image highlights the various sources of greenhouse gases and their impact on our environment.
-        </p>
-      </section>
+/* Description Section */
+.descriptionSection {
+  text-align: center;
+  margin: 20px 0;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
-      <footer className={styles.footer}>
-        <p>&copy; 2024 Greenhouse Emissions Project. All Rights Reserved.</p>
-      </footer>
-    </div>
-  );
+.description {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Image Section */
+.imageSection {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.image {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.imageDescription {
+  font-size: 1.1rem;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Footer Styles */
+.footer {
+  padding: 20px 0;
+  text-align: center;
+  color: #777;
+  border-top: 1px solid #ddd;
+  width: 100%;
+  background-color: #ffffff; /* White footer background */
 }
