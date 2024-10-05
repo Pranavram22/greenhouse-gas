@@ -1,0 +1,32 @@
+/* MappingTool.module.css */
+.container {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .title {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .marker {
+    background-color: red;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .infoBox {
+    margin-top: 20px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .plumeImage {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+  
