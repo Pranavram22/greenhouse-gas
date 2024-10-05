@@ -1,30 +1,88 @@
 .container {
-  padding: 20px;
-  max-width: 800px;
+  padding: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .title {
   text-align: center;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
 .select {
   display: block;
-  margin: 20px auto;
-  padding: 10px;
-  font-size: 16px;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.contentContainer {
+  display: flex;
+  gap: 2rem;
 }
 
 .chartContainer {
-  position: relative;
-  height: 400px; /* Set a fixed height for the chart */
-  margin-top: 20px;
+  flex: 1;
+  height: 400px;
+}
+
+.infoContainer {
+  flex: 1;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.infoContainer h2 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.infoItem {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.infoItem h3 {
+  margin-top: 0;
+  color: #555;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.infoItem p {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
 }
 
 .noData {
   text-align: center;
-  font-size: 18px;
-  color: #ff0000; /* Optional: make it stand out */
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .contentContainer {
+    flex-direction: column;
+  }
+
+  .chartContainer,
+  .infoContainer {
+    width: 100%;
+  }
 }
