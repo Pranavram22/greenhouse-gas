@@ -1,5 +1,6 @@
 // app/country/page.tsx
 "use client";
+"use client";
 import { useEffect, useState } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
@@ -84,7 +85,6 @@ const CountryPage = () => {
         data: filteredData.map(item => parseFloat(item.perCapitaPollution ?? '0') || 0),
         backgroundColor: 'rgba(153, 102, 255, 0.6)',
       },
-      // Add more datasets here for additional data points
     ],
   };
 
@@ -107,7 +107,7 @@ const CountryPage = () => {
             data={chartData}
             options={{
               responsive: true,
-              maintainAspectRatio: false, // Disable the default aspect ratio
+              maintainAspectRatio: false,
               scales: {
                 x: {
                   title: {

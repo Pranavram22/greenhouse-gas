@@ -1,22 +1,30 @@
-/* app/country/Country.module.css */
 .container {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .title {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .select {
-    margin-bottom: 20px;
-    padding: 10px;
-  }
-  
-  .chartContainer {
-    margin: 20px 0;
-    width: 100%; /* Make sure it takes full width */
-    height: 400px; /* Set a fixed height */
-  }
-  
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.select {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.chartContainer {
+  position: relative;
+  height: 400px; /* Set a fixed height for the chart */
+  margin-top: 20px;
+}
+
+.noData {
+  text-align: center;
+  font-size: 18px;
+  color: #ff0000; /* Optional: make it stand out */
+}
