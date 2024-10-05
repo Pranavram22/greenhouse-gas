@@ -38,7 +38,7 @@ export default function Home() {
   };
 
   const handleFireDetectionRedirect = () => {
-    router.push('/fire-detection'); // Redirect to the Fire Detection page
+    router.push('/firedetection'); // Redirect to the Fire Detection page
   };
 
   const handleHomeRedirect = () => {
