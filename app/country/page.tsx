@@ -12,7 +12,10 @@ interface EmissionsData {
   country: string;
   year: string;
   co2: string; // CO2 emissions data
-  methane?: string; // Optional
+  methane?: string; // Optional methane emissions data
+  population?: string; // Population data
+  perCapitaPollution?: string; // Per capita pollution data
+  [key: string]: string | undefined; // Allows additional data points
 }
 
 const CountryPage = () => {
@@ -66,6 +69,22 @@ const CountryPage = () => {
         data: filteredData.map(item => parseFloat(item.co2) || 0),
         backgroundColor: 'rgba(75, 192, 192, 0.6)',
       },
+      {
+        label: 'Methane Emissions',
+        data: filteredData.map(item => parseFloat(item.methane ?? '0') || 0),
+        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+      },
+      {
+        label: 'Population',
+        data: filteredData.map(item => parseFloat(item.population ?? '0') || 0),
+        backgroundColor: 'rgba(255, 206, 86, 0.6)',
+      },
+      {
+        label: 'Per Capita Pollution',
+        data: filteredData.map(item => parseFloat(item.perCapitaPollution ?? '0') || 0),
+        backgroundColor: 'rgba(153, 102, 255, 0.6)',
+      },
+      // Add more datasets here for additional data points
     ],
   };
 
@@ -81,10 +100,34 @@ const CountryPage = () => {
         ))}
       </select>
 
-      {filteredData.length > 0 && (
+      {filteredData.length > 0 ? (
         <div className={styles.chartContainer}>
-          <Bar className={styles.chart} data={chartData} />
+          <Bar
+            className={styles.chart}
+            data={chartData}
+            options={{
+              responsive: true,
+              maintainAspectRatio: false, // Disable the default aspect ratio
+              scales: {
+                x: {
+                  title: {
+                    display: true,
+                    text: 'Year',
+                  },
+                },
+                y: {
+                  title: {
+                    display: true,
+                    text: 'Emissions / Population',
+                  },
+                  beginAtZero: true,
+                },
+              },
+            }}
+          />
         </div>
+      ) : (
+        <p className={styles.noData}>No data available for the selected country.</p>
       )}
     </div>
   );
