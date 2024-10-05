@@ -45,7 +45,10 @@ export default function Home() {
         <nav className={styles.navButtons}>
           <button onClick={() => handleNavigation('/')} className={styles.navButton}>Home</button>
           <button onClick={() => handleNavigation('/firedetection')} className={styles.navButton}>Fire Detection</button>
-          <button onClick={() => handleNavigation('/country')} className={styles.navButton}>View Countries</button>
+          <button onClick={() => handleNavigation('/country')} className={styles.navButton}>Country Footprint</button>
+          <button onClick={() => handleNavigation('/plumedetection')} className={styles.navButton}>Plume Detection</button>
+          <button onClick={() => handleNavigation('/volcanoest')} className={styles.navButton}>Volcano Estimation</button>
+          <button onClick={() => handleNavigation('/carbonfootprint')} className={styles.navButton}>CarbonFootprint Calculator</button>
         </nav>
       </header>
 
