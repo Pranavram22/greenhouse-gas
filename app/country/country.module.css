@@ -1,0 +1,20 @@
+/* app/country/Country.module.css */
+.container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .select {
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+  
+  .chartContainer {
+    margin-top: 20px;
+  }
+  

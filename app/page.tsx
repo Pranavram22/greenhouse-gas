@@ -1,24 +1,14 @@
 // app/page.tsx
-"use client"
+"use client";
 import { useEffect, useState } from 'react';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
-import Papa from 'papaparse';
+import { useRouter } from 'next/navigation'; // Import useRouter
 import styles from './Home.module.css';
-
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-
-interface EmissionsData {
-  country: string;
-  year: string;
-  co2: string; // CO2 emissions data
-  methane: string; // Optional: use this if you want to display methane data too
-}
+import Papa from 'papaparse';
 
 export default function Home() {
-  const [emissionsData, setEmissionsData] = useState<EmissionsData[]>([]);
-  const [selectedCountry, setSelectedCountry] = useState<string>('United States');
-  const [filteredData, setFilteredData] = useState<EmissionsData[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [emissionsData, setEmissionsData] = useState<{ country: string }[]>([]);
+  const router = useRouter(); // Initialize useRouter
 
   useEffect(() => {
     fetch('/emissions_data.csv')
@@ -29,10 +19,10 @@ export default function Home() {
         return response.text();
       })
       .then(csv => {
-        Papa.parse<EmissionsData>(csv, {
+        // Parse CSV data and set emissionsData
+        Papa.parse<{ country: string }>(csv, {
           header: true,
           complete: (results) => {
-            console.log('Parsed Data:', results.data);
             setEmissionsData(results.data);
           },
           error: (error: unknown) => {
@@ -45,46 +35,27 @@ export default function Home() {
       });
   }, []);
 
-  useEffect(() => {
-    if (emissionsData.length > 0) {
-      const countryData = emissionsData.filter((item) => item.country === selectedCountry);
-      setFilteredData(countryData);
-    }
-  }, [selectedCountry, emissionsData]);
-
-  const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCountry(event.target.value);
-  };
-
-  const chartData = {
-    labels: filteredData.map(item => item.year),
-    datasets: [
-      {
-        label: 'CO2 Emissions',
-        data: filteredData.map(item => parseFloat(item.co2) || 0),
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-      },
-      // Add more datasets for methane or other metrics as needed
-    ],
+  const handleCountryRedirect = () => {
+    // Redirect to the Country page
+    router.push('/country');
   };
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Country-Specific Emissions Tool</h1>
+      <h1 className={styles.title}>Welcome to the Emissions Tool</h1>
 
-      <select className={styles.select} value={selectedCountry} onChange={handleCountryChange}>
-        {Array.from(new Set(emissionsData.map((item) => item.country))).map((country) => (
-          <option key={country} value={country}>
-            {country}
-          </option>
-        ))}
-      </select>
+      <button onClick={handleCountryRedirect} className={styles.button}>
+        View Country-Specific Emissions
+      </button>
 
-      {filteredData.length > 0 && (
-        <div className={styles.chartContainer}>
-          <Bar className={styles.chart} data={chartData} />
-        </div>
-      )}
+      <div className={styles.additionalLinks}>
+        {/* Placeholder for other links or features */}
+        <h2>Other Tools</h2>
+        <ul>
+          <li><a href="/some-other-tool">Other Tool 1</a></li>
+          <li><a href="/another-tool">Other Tool 2</a></li>
+        </ul>
+      </div>
     </div>
   );
 }
