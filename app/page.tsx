@@ -52,29 +52,46 @@ export default function Home() {
         </nav>
       </header>
 
+      {/* Video section with overlay text */}
       <div className={styles.headerBackground}>
-        <h1 className={styles.title}>Uncover the Role of Greenhouse Gases in Your Neighborhood</h1>
-        <p className={styles.subtitle}>
-          Explore how greenhouse gases affect your local environment and learn how you can make a difference.
-        </p>
+        <video autoPlay muted loop className={styles.videoBackground}>
+          <source src="/2695085-hd_1920_1080_30fps.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className={styles.textContainer}>
+          <h1 className={styles.title}>Uncover the Role of Greenhouse Gases in Your Neighborhood</h1>
+          <p className={styles.subtitle}>
+            Explore how greenhouse gases affect your local environment and learn how you can make a difference.
+          </p>
+        </div>
       </div>
 
+      {/* Main content below the video */}
       <main className={styles.mainContent}>
-        <section className={styles.descriptionSection}>
-          <p className={styles.description}>
-            This tool allows you to investigate the impact of greenhouse gases in your neighborhood,
-            providing insights into their sources and effects.
-            Join us in taking action towards a more sustainable future!
-          </p>
+        <section className={styles.buttonInfoSection}>
+          <div className={styles.buttonInfo}>
+            <h3>Fire Detection</h3>
+            <p>This tool helps you detect and monitor fire activity in your area using satellite data.</p>
+          </div>
+          <div className={styles.buttonInfo}>
+            <h3>Country Footprint</h3>
+            <p>Analyze the greenhouse gas emissions of different countries and compare their footprints.</p>
+          </div>
+          <div className={styles.buttonInfo}>
+            <h3>Plume Detection</h3>
+            <p>Track the movement of harmful plumes of gases released during industrial activities.</p>
+          </div>
+          <div className={styles.buttonInfo}>
+            <h3>Volcano Estimation</h3>
+            <p>Estimate the emissions released by volcanic activities around the globe.</p>
+          </div>
+          <div className={styles.buttonInfo}>
+            <h3>CarbonFootprint Calculator</h3>
+            <p>Calculate your personal or business carbon footprint and explore ways to reduce it.</p>
+          </div>
         </section>
 
-        <section className={styles.imageSection}>
-          <img src="/images.jpg" alt="Greenhouse Gases Impact" className={styles.image} />
-          <p className={styles.imageDescription}>
-            This image highlights the various sources of greenhouse gases and their impact on our environment.
-          </p>
-        </section>
-
+        {/* Handle potential errors */}
         {error && (
           <div className={styles.errorAlert}>
             <p className={styles.errorTitle}>Error</p>
@@ -82,12 +99,12 @@ export default function Home() {
           </div>
         )}
 
+        {/* Display emissions data if available */}
         {emissionsData.length > 0 && (
           <section className={styles.dataSection}>
             <h2 className={styles.dataTitle}>Emissions Data Overview</h2>
             <p className={styles.dataDescription}>
-              {/* We've collected emissions data for {emissionsData.length} countries. 
-              Explore detailed information by clicking the 'View Countries' button above. */}
+              {/* Placeholder for emissions data */}
             </p>
           </section>
         )}
