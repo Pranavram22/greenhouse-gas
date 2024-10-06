@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <div className={styles.logo}>WHITE AURA</div>
+        <div className={styles.logo}>WHITE AURA</div><img src='/WhatsApp Image 2024-10-06 at 10.10.14_c7a9cd29'></img>
         <nav className={styles.navButtons}>
           <button onClick={() => handleNavigation('/')} className={styles.navButton}>Home</button>
           <button onClick={() => handleNavigation('/firedetection')} className={styles.navButton}>Fire Detection</button>
@@ -97,21 +97,21 @@ export default function Home() {
           <h2 className={styles.relatedTitle}>Explore Related Topics</h2>
           <div className={styles.relatedGrid}>
             <div className={styles.relatedCard}>
-              <img src="/image1.jpg" alt="Climate Change Effects" className={styles.relatedImage} />
+              <img src="/download.jpeg" alt="Climate Change Effects" className={styles.relatedImage} />
               <h3 className={styles.cardTitle}>Climate Change Effects</h3>
               <p className={styles.cardDescription}>
                 Learn about the effects of climate change on ecosystems and biodiversity.
               </p>
             </div>
             <div className={styles.relatedCard}>
-              <img src="/image2.jpg" alt="Sustainable Practices" className={styles.relatedImage} />
+              <img src="/download (1).jpeg" alt="Sustainable Practices" className={styles.relatedImage} />
               <h3 className={styles.cardTitle}>Sustainable Practices</h3>
               <p className={styles.cardDescription}>
                 Discover sustainable practices to mitigate climate change and protect the environment.
               </p>
             </div>
             <div className={styles.relatedCard}>
-              <img src="/image3.jpg" alt="Renewable Energy" className={styles.relatedImage} />
+              <img src="/renewable-energy-sources-for-a-sustainable-future.jpg" alt="Renewable Energy" className={styles.relatedImage} />
               <h3 className={styles.cardTitle}>Renewable Energy</h3>
               <p className={styles.cardDescription}>
                 Explore renewable energy sources and their role in reducing greenhouse gas emissions.
@@ -130,14 +130,7 @@ export default function Home() {
 
         {/* Fire Detection Section */}
         <section className={styles.fireDetectionSection}>
-          <div className={styles.fireInfo}>
-            <h3>Fire Detection</h3>
-            <p>
-              The fire detection tool utilizes satellite data to monitor fire activity in real-time. It analyzes thermal anomalies
-              to identify potential fire incidents, allowing for quicker response times and better resource allocation for firefighting.
-              This information is crucial for preventing wildfires and minimizing damage to the environment.
-            </p>
-          </div>
+    
           <img
             src="/FIRMS_24hrs[@47.0,27.8,3.0z].jpg"
             alt="Fire Detection"
@@ -149,66 +142,7 @@ export default function Home() {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-section logo-section">
-            <img
-              src="src\components\logo.png"
-              alt="EarthVision Logo"
-              className="footer-logo"
-            />
             <p>© 2024 EarthVision, Inc. All rights reserved.</p>
-          </div>
-
-          <div className="footer-section resources">
-            <h3>Resources</h3>
-            <nav className="footer-nav">
-              <a href="/faqs">FAQs</a>
-              <a href="/blog">Blog</a>
-              <a href="/case-studies">Case Studies</a>
-              <a href="/partnership">Partnership</a>
-            </nav>
-          </div>
-
-          <div className="footer-section company">
-            <h3>Company</h3>
-            <nav className="footer-nav">
-              <a href="/our-story">Our Story</a>
-              <a href="/team">Team</a>
-              <a href="/careers">Careers</a>
-              <a href="/contact">Contact</a>
-            </nav>
-          </div>
-
-          <div className="footer-section connect">
-            <h3>Connect</h3>
-            <nav className="footer-nav">
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Twitter
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Instagram
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Facebook
-              </a>
-            </nav>
           </div>
         </div>
       </footer>
