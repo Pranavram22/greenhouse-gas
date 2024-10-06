@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+NASA Space hackathon
 
-## Getting Started
+Uncover the Role of Greenhouse Gases in Your Neighborhood!
 
-First, run the development server:
+This project provides users with data related to environmental metrics, including information on volcanoes, country carbon footprints, methane plumes, emission rates, and fire detection. It pulls data from multiple authoritative sources and visualizes it through interactive charts and graphs, making complex environmental data easier to understand. The platform aims to raise awareness about environmental challenges and provide actionable insights for decision-makers, researchers, and the general public
+Table of Contents
+1.	System Overview
+2.	Data Sources
+3.	Usage Guide
+ 
+Introductoin
+The platform allows users to easily access, understand, and interact with data related to:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Volcanic Activity
+Country Carbon Footprints
+ Plumes
+Emission Rates (CO2, CH4, etc.)
+Fire detection
+By offering intuitive visualizations, the system helps people make sense of the environmental data, whether for research, policy-making, or public awareness.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Volcanic activity: This page will expalain about the most frequent volcanic eruptoins and the future prediction of where the volcanoes might erupt based on the recent volcanic activities in the respective area.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Country Carbon footprints: In this page we can see the latest data of a countries emission rates and its contribution to the global emissions.It also shows the temperture increase that it cerates due to this emission.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Plumes: This is basically regarding the air quality or the degradation of air quality in  a specific region. For example if there if a sudden fire or accident somewhere there will be decrease in ar quality so there will be map which shows these data,with proper colors over the particular place and there is legends for each color.
 
-## Learn More
+Fire detectors: This is a live data source where it recieves data from satellite about the fire and this message is passed on to the near by places through our server. And we also look for data of the continent we want.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
