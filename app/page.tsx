@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <div className={styles.logo}>WHITE AURA</div><img src='/WhatsApp Image 2024-10-06 at 10.10.14_c7a9cd29'></img>
+        <div className={styles.logo}>WHITE AURA</div><img src='/WhatsApp Image 2024-10-06 at 10.10.14_c7a9cd29.jpg' height='50px' width='50px'></img>
         <nav className={styles.navButtons}>
           <button onClick={() => handleNavigation('/')} className={styles.navButton}>Home</button>
           <button onClick={() => handleNavigation('/firedetection')} className={styles.navButton}>Fire Detection</button>
@@ -130,11 +130,10 @@ export default function Home() {
 
         {/* Fire Detection Section */}
         <section className={styles.fireDetectionSection}>
-    
           <img
             src="/FIRMS_24hrs[@47.0,27.8,3.0z].jpg"
             alt="Fire Detection"
-            className={styles.fireImage}
+            className={styles.fireImage} height='100%' width='100%'
           />
         </section>
       </main>
