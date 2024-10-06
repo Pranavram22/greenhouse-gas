@@ -1,137 +1,58 @@
-/* Container for the entire page */
-.container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
-  background-color: #0D0D0D;
-  color: #E0E0E0;
-  transition: background-color 0.4s ease;
-}
-
-/* Header and navigation */
-.header {
-  background-color: black;
-  padding: 15px 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.navButtons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-}
-
-.navButton {
-  background-color: black;
-  color: white;
-  padding: 10px 25px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.navButton:hover {
-  background-color: rgb(17, 91, 230);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-  transform: translateY(-2px);
-}
-
-/* Video section with text overlay */
-.headerBackground {
-  position: relative;
-  height: 500px;
-  overflow: hidden;
-  background-color: #000;
-}
-
-.videoBackground {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  filter: brightness(60%);
-}
-
-.textContainer {
-  position: absolute;
-  z-index: 2;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -70%);
-  text-align: center;
-  color: #FFD700;
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  max-width: 800px;
-  color: #E6E6E6;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-}
-
-/* Main content and button info boxes */
-.mainContent {
-  padding: 30px;
+/* Related Section */
+.relatedSection {
+  padding: 20px;
+  margin-top: 40px;
   background-color: #1a1a1a;
-}
-
-.buttonInfoSection {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  background-color: #292929;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 1s ease-in-out;
 }
 
-.buttonInfo {
-  background-color: #333;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+.relatedTitle {
+  font-size: 2rem;
+  font-weight: bold;
   color: white;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 20px;
 }
 
-.buttonInfo h3 {
-  margin-bottom: 10px;
-  font-size: 1.4rem;
-  color: #FFD700;
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
 
-.buttonInfo p {
-  font-size: 1rem;
-  color: #E0E0E0;
-}
-
-.buttonInfo:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
-
-/* Footer */
-.footer {
-  background-color: #101010;
-  color: #E0E0E0;
+.relatedCard {
+  background-color: #2b2b2b;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
+}
+
+.relatedCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.relatedImage {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.relatedCard:hover .relatedImage {
+  transform: scale(1.05);
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #E0E0E0;
+  margin: 15px 0;
+}
+
+.cardDescription {
+  color: #CCCCCC;
+  padding: 0 15px 15px;
 }
