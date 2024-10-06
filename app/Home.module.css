@@ -1,3 +1,236 @@
+/* General page styling */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0D0D0D;
+  color: #FFFFFF;
+  text-align: center;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  opacity: 0;
+  animation: fadeIn 1.2s forwards;
+  font-weight: 500;
+  /* Make text slightly bold globally */
+}
+
+/* Fade-in animation for the page load */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Header and navigation */
+.header {
+  background-color: #1a1a1a;
+  padding: 15px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: whitesmoke;
+  font-size: 1.7rem;
+  margin-left: 20px;
+  font-weight: 700;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* Navigation Buttons */
+.navButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.navButton {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  /* Bolder text for buttons */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.navButton:hover {
+  background-color: rgb(16, 145, 54);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transform: translateY(-4px);
+  animation: bounce 0.3s ease-in-out;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Video section with text overlay */
+.headerBackground {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  background-color: #000;
+  animation: slideInFromLeft 1.2s ease-in-out;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.videoBackground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  filter: brightness(60%);
+}
+
+.textContainer {
+  position: absolute;
+  z-index: 2;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  text-align: center;
+  color: whitesmoke;
+  animation: fadeInUp 1.5s ease;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  /* Make title bold */
+  margin-bottom: 15px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  font-weight: 500;
+  /* Bold subtitle */
+  max-width: 800px;
+  color: #E6E6E6;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Image Section */
+.imageSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.imageWrapper {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px #1a1a1a;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imageWrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px #1a1a1a;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  flex-grow: 1;
+  transition: transform 0.4s ease;
+}
+
+.imageWrapper:hover .image {
+  transform: scale(1.05);
+}
+
+.caption {
+  padding: 10px;
+  color: white;
+  margin-top: auto;
+  background-color: #1a1a1a;
+  font-weight: bold;
+  /* Bold captions */
+  transition: background-color 0.4s ease;
+}
+
+/* Error Alert */
+.errorAlert {
+  background-color: #d9534f;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-weight: bold;
+  /* Bold error text */
+  opacity: 0;
+  animation: fadeInError 1s ease-in-out forwards;
+}
+
+@keyframes fadeInError {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 /* Related Section */
 .relatedSection {
   padding: 20px;
@@ -55,4 +288,143 @@
 .cardDescription {
   color: #CCCCCC;
   padding: 0 15px 15px;
+}
+
+
+.footer {
+  background-color: #111;
+  /* Dark black background */
+  color: #eee;
+  /* Light text color */
+  padding: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.logo-section img {
+  width: 80px;
+  /* Increased the size */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.footer-section h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: color 0.3s ease;
+}
+
+.footer-section p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.footer-section a {
+  color: #aaa;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #fff;
+}
+
+.social-media a {
+  margin-right: 15px;
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+  color: #fff;
+}
+
+.footer-nav a {
+  position: relative;
+}
+
+.footer-nav a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #f9b934;
+  /* Orange hover underline */
+  transition: width 0.3s ease-in-out;
+}
+
+.footer-nav a:hover::before {
+  width: 100%;
+}
+
+/* Make all text and logo visible at all times */
+.footer-section p,
+.footer-section a,
+.footer-logo {
+  opacity: 1;
+  /* Always visible */
+  transform: translateY(0);
+  /* No transform initially */
+  transition: all 0.5s ease-in-out;
+}
+
+/* Keep the hover fade-in effect but remove the opacity */
+.footer:hover .footer-section p,
+.footer:hover .footer-section a,
+.footer:hover .footer-logo {
+  opacity: 1;
+  /* Fully visible */
+  transform: translateY(0);
+  /* No vertical movement on hover */
+}
+
+@media screen and (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-section {
+    margin-bottom: 20px;
+  }
+
+  .footer-section:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
